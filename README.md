@@ -1,24 +1,31 @@
 # ShieldLabs examples
 
-Runnable example apps that show how to read a ShieldLabs risk score and its details, then act on them in your own code. You set the rules.
+Example apps that read a ShieldLabs verdict on the server and act on it: signup gating, checkout risk, metered content and account sharing.
 
-> **Pre-launch.** This package is a placeholder to reserve the name and shape the public API. It is not published yet and the surface will change. Follow along at [shieldlabs.ai](https://shieldlabs.ai).
+> The scenario apps are being prepared. Until they land here, start from the SDK quick starts in the [ShieldLabs documentation](https://docs.shieldlabs.ai).
 
-## Examples
+## How every example works
 
-- [`signup-gating/`](./signup-gating) — add friction or review at sign-up based on the score.
-- [`checkout-risk/`](./checkout-risk) — score risk at checkout and route high-risk orders to review.
-- [`paywall/`](./paywall) — protect metered or gated content.
-- [`account-sharing/`](./account-sharing) — spot shared or resold accounts across sessions.
+1. The browser runs an identification with `@shieldlabs-ai/js` (or a framework package) and sends the `requestId` along with the form or request.
+2. The server reads the verdict for that request ID from the History API with a server SDK, or receives it by a signed webhook.
+3. The server acts on the Risk Score, the three risk bands (trusted 0-29, suspicious 30-59, dangerous 60-100), the detection flags and the identifiers, for example how many accounts one device ID has already created.
 
-Each example reads the score and decides what to do in its own code. ShieldLabs is the detection layer; the decision lives with you.
+## Scenarios
+
+| Folder | What it shows |
+|---|---|
+| [`signup-gating/`](./signup-gating) | Allow, verify or hold a new account based on the verdict and on how many accounts the device already has |
+| [`checkout-risk/`](./checkout-risk) | Route risky orders to review before payment |
+| [`paywall/`](./paywall) | Keep metered or gated content limits per device, not per cookie |
+| [`account-sharing/`](./account-sharing) | Spot one paid account used from many devices |
 
 ## About ShieldLabs
 
-ShieldLabs gives you identification and anonymity detection with an explainable risk score (0-100) and detailed signals, so you can assess traffic quality and act on abuse and fraud in your own code. You read the score and its details; your code owns the decision. You set the rules.
+ShieldLabs identifies visitors and scores risk with 300+ device, network and behavior signals, so you can detect risky users and stop abuse of your product.
 
 - Website: [shieldlabs.ai](https://shieldlabs.ai)
-- Get started: [Start Free](https://shieldlabs.ai)
+- Documentation: [docs.shieldlabs.ai](https://docs.shieldlabs.ai)
+- Start free: [app.shieldlabs.ai](https://app.shieldlabs.ai)
 
 ## License
 
