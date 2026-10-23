@@ -6,7 +6,7 @@ Example apps that read a ShieldLabs verdict on the server and act on it: signup 
 
 ## How every example works
 
-1. The browser runs an identification with `@shieldlabs-ai/js` (or a framework package) and sends the `requestId` along with the form or request.
+1. The browser runs an identification with `@shieldlabs-ai/js` (or a framework package) and sends the `identificationId` along with the form or request.
 2. The server reads the verdict for that request ID from the History API with a server SDK, or receives it by a signed webhook.
 3. The server acts on the Risk Score, the three risk bands (trusted 0-29, suspicious 30-59, dangerous 60-100), the detection flags and the identifiers, for example how many accounts one device ID has already created.
 
